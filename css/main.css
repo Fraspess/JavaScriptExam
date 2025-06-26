@@ -1,0 +1,243 @@
+
+
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainDiv
+{
+    background-color: #F4F8F4;
+}
+
+nav 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabContainer {
+    display: flex;
+    background-color: #333;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    outline: none;
+}
+
+.tab:hover {
+    background-color: #444;
+}
+
+.tab.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #00A3A3; 
+}
+
+.currentWeather
+{
+    margin: 50px;
+    background-color: white;
+}
+
+.currentWeatherContent
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+
+
+.currentWeatherLeft
+{
+    flex: 1;
+    text-align: center;
+}
+
+.currentWeatherCenter
+{
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.currentWeatherCenter p:first-child {
+    margin-bottom: 5px;
+}
+
+.currentWeatherRight
+{
+    font-size: 19px;
+    flex: 1;
+    text-align: center;
+}
+
+.todayWeather
+{
+    margin: 50px;
+    background-color: white;
+}
+
+.todayWeatherContent
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.todayWeatherItem
+{
+    flex: 1;
+    text-align: center;
+}
+
+.currentWeatherImage
+{
+    width: 100px;
+    height: 100px;
+}
+
+.hourlyForecastTable
+{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hourlyRow
+{
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hourlyRow:last-child
+{
+    border-bottom: none;
+}
+
+.hourlyCell
+{
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.hourlyCell img
+{
+    width: 75px;;
+    height: 75px;
+    margin: 0 auto;
+}
+
+.hourlyCell.label
+{
+    text-align: left;
+    font-weight: bold;
+    color: #666;
+    flex: 0 0 100px;
+}
+
+
+.error-image
+{
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 50px;
+    display: block;
+}
+
+
+.forecastDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cyanColor
+{
+    color: #00A3A3;
+}
+
+.forecast-container {
+    background-color: white;
+}
+
+.day-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 120px;
+    flex: 1;
+}
+
+.day-name {
+    font-weight: bold;
+    color: #00A3A3;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.day-date {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.day-icon {
+    margin: 10px 0;
+}
+
+.day-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.day-temp {
+    font-size: 18px;
+    margin: 10px 0 5px 0;
+    color: #333;
+}
+
+.day-desc {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.day-min-temp {
+    color: #999;
+    font-size: 14px;
+}
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="mainDiv" style="display: none;" id="mainDiv">
+        <div class="topBar">
+        <nav>
+        <h1 style="color: #00A3A3;  padding: 20px; font-weight: bold;">MY WEATHER</h1>
+        <input id="searchInput" style="margin: 40px; width: 200px; color: gray;" type="text" placeholder="Search....">
+        </nav>
+        </div>
+
+        <div class="tabContainer">
+        <button class="tab active" id="todayTab">Today</button>
+    <button class="tab" id="forecastTab">5-day forecast</button>
+
+    </div>
+         <div id="weatherContent">
+        </div>
+
+
+
+    </div>
+    
+
+
+
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/5dayForecast.js"></script>
+</body>
+</html>
