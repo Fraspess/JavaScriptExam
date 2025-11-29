@@ -3,10 +3,10 @@ const apiKey = "ebd75f3c664c82b3f294cc712d4c5333";
 const searchInput = document.getElementById("searchInput");
 
 
-async function fetchCurrentWeatherData(lat, lon) {
+async function fetchCurrentWeatherData(lat, lon, city) {
     let url;
-    if (typeof lat === 'string') {
-        url = `https://api.openweathermap.org/data/2.5/weather?q=${lat}&appid=${apiKey}&units=metric`;
+    if (typeof city === 'string' && city.length > 0) {
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     }
     if (typeof lat === 'number' && typeof lon === 'number') {
         url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -44,7 +44,17 @@ async function getLocation() {
                 displayFullDailyForecast(todayForecasts);
             }
 
-        }, error => {
+        }, async error => {
+            const defaultcity = "Rivne";
+            const weatherData = await fetchCurrentWeatherData(null, null, defaultcity);
+            displayCurrentWeatherData(weatherData);
+
+            const dailyForecast = await fetchDailyForecast(null, null, defaultcity);
+            if(dailyForecast)
+            {
+                const todayForecasts = getTodayForecasts(dailyForecast);
+                displayFullDailyForecast(todayForecasts);
+            }
             console.error("Error getting location", error);
         })
 
@@ -115,10 +125,10 @@ function displayCurrentWeatherData(data) {
 // https://openweathermap.org/img/wn/${iconCode}@2x.png
 
 
-async function fetchDailyForecast(lat, lon) {
+async function fetchDailyForecast(lat, lon,city) {
     let url;
-    if (typeof lat === 'string') {
-        url = `https://api.openweathermap.org/data/2.5/forecast?q=${lat}&appid=${apiKey}&units=metric`;
+    if (typeof city === 'string') {
+        url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
     }
     if (typeof lat === 'number' && typeof lon === 'number') {
         url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -236,7 +246,7 @@ document.getElementById("todayTab").addEventListener("click", () => {
     const searchQuery = searchInput.value.trim();
 
     if (searchQuery) { 
-        fetchCurrentWeatherData(searchQuery)
+        fetchCurrentWeatherData(undefined,undefined,searchQuery)
             .then(data =>
                 {
                 if (data) 
