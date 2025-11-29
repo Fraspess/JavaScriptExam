@@ -278,7 +278,7 @@ searchInput.addEventListener("keypress", function (event)
         event.preventDefault();
         const searchQuery = searchInput.value.trim();
         if (searchQuery) {
-            fetchCurrentWeatherData(searchQuery)
+            fetchCurrentWeatherData(undefined,undefined,searchQuery)
                 .then(data => {
                     if (data)
                     {
